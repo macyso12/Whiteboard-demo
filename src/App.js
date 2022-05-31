@@ -1,23 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import Whiteboard from './whiteboard/whiteboard';
 
 function App() {
+  const [active, setActive] = useState('Show');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={() => setActive('Show')}>Show Whiteboard</button>
+      <div>{active === 'Show' && <Whiteboard />}</div>
     </div>
   );
 }
